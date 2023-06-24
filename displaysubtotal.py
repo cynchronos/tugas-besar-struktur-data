@@ -1,10 +1,12 @@
+from binarysearchtree import BinarySearchTree
+
 class DisplaySubtotal:
   
     def sort(self, transaction):
       # bubble sort in ascending transaction subtotal
       for i in range(len(transaction)):
         for j in range(len(transaction)-1-i):
-          if transaction[j]['subtotal'] > transaction[j+1]['subtotal']:
+          if transaction[j]['subtotal'] < transaction[j+1]['subtotal']:
             transaction[j], transaction[j+1] = transaction[j+1], transaction[j]
       return transaction
     
