@@ -66,36 +66,6 @@ class Stock:
                 return self.findOne(query, value, root.left)
             else:
                 return None
-        
-    # def inorder(self):
-    #     if self.root:
-    #         self._inorder(self.root)
-
-    # def _inorder(self, node):
-    #     if node:
-    #         self._inorder(node.left)
-    #         print(node.key)
-    #         self._inorder(node.right)
-
-    # def preorder(self):
-    #     if self.root:
-    #         self._preorder(self.root)
-
-    # def _preorder(self, node):
-    #     if node:
-    #         print(node.key)
-    #         self._preorder(node.left)
-    #         self._preorder(node.right)
-
-    # def postorder(self):
-    #     if self.root:
-    #         self._postorder(self.root)
-
-    # def _postorder(self, node):
-    #     if node:
-    #         self._postorder(node.left)
-    #         self._postorder(node.right)
-    #         print(node.key)
     
     # def update_by_sku(self, key, data):
     #     if self.root is None:
@@ -130,6 +100,10 @@ class Transaction:
     
     def insert(self, key):
         self.data.append(key)
+        
+    def insertMany(self, keys):
+        for key in keys:
+            self.data.append(key)
     
     def findAll(self):
         if len(self.data) != 0:
