@@ -27,7 +27,7 @@ class StockFunction:
             else:
                 self._insert(key, node.right)
         else:
-            print("key is already in tree")
+            return key
 
     def findAll(self):
         new_node = Node(None)

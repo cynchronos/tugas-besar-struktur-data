@@ -7,28 +7,24 @@ class InputStock:
         self.array = []
 
     def addNewInput(self, skuNumber, productName, price, stock):
-        is_duplicate = False
+        stok = Stock.findOne('no_sku', skuNumber)
+        if stok :
+            return print("Ditolak, duplikat nomor sku terdeteksi")
 
-        if skuNumber == Stock.findOne('no_sku', skuNumber):
-          print("Ditolak, duplikat nomor sku terdeteksi")
-          is_duplicate = True
-          
-        if is_duplicate == True:
-          print("ditolak, duplikasi sku terdeteksi")
 
-        if is_duplicate == False:
-            inputObject = {
+
+        inputObject = {
                 "no_sku": skuNumber,
                 "nama_barang": productName,
                 "harga_satuan": price,
                 "jumlah_stok": stock
             }
-            self.array.append(inputObject)
+        self.array.append(inputObject)
 
-            for items in self.array:
+        for items in self.array:
                 Stock.insert(items)
                 
-            print(self.array)
+        return print(self.array)
 
 
 def addStock():
@@ -42,7 +38,7 @@ def addStock():
 
         newInput.addNewInput(inputSku, inputProduct, inputPrice, inputStock)
 
-        choice = input("input another stuff ?   [Y/N]")
+        choice = input("Input Stok Lain? ?   [Y/N]")
 
         if choice != "Y" and choice != "y":
             break
