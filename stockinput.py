@@ -7,7 +7,7 @@ class InputStock:
     is_duplicate = False
     for sku in self.array:
       if skuNumber == sku[0]:
-        print("rejected, sku duplication detected")
+        print("Ditolah, duplikat nomor sku terdeteksi")
         is_duplicate = True
         break
 
@@ -17,7 +17,7 @@ class InputStock:
       print(self.array)
 
 
-def main():
+def addStock():
   newInput = InputStock()
 
   while True:
@@ -32,6 +32,3 @@ def main():
 
     if choice != "Y" and choice != "y":
       break
-
-
-main()
