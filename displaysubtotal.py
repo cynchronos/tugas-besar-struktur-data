@@ -4,7 +4,6 @@ from binarysearchtree import Transaction
 
 class DisplaySubtotal:
     def sort(self, transaction):
-        # bubble sort in ascending transaction subtotal bst
         for i in range(len(transaction)):
             for j in range(len(transaction) - 1):
                 if transaction[j]["subtotal"] < transaction[j + 1]["subtotal"]:
@@ -43,8 +42,7 @@ for transaction in transactions:
         ]
     )
 
-print(f'Order Sort: {transaction}')
-print(table)
+print(f'Order Sort:\n{table}')
 
 # Stock.insert(
 #     {"no_sku": "0001", "nama_barang": "Roti Tawar", "harga": 10000, "jumlah_stock": 10}

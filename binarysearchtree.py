@@ -4,8 +4,6 @@ class Node:
         self.left = None
         self.right = None
 
-
-# create bst crud Stok without validation
 class StockFunction:
     def __init__(self):
         self.root = None
