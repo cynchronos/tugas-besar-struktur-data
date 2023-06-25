@@ -1,11 +1,5 @@
 from binarysearchtree import Transaction,Stock
 
-Stock.insert({"no_sku" : 5521,
-            "nama_barang" : "susu",
-            "harga_satuan" : 1500,
-            "jumlah_stok": 4
-})
-
 def tambah_data_transaksi():
     nama_konsumen = input("Masukkan Nama Konsumen: ")
     transaksi = []
@@ -43,5 +37,5 @@ def tambah_data_transaksi():
             if lanjut.upper() == 'N':
                 break  # Keluar dari loop saat input "N"
 
-    return transaksi
+    return print("Data Transaksi Konsumen Berhasil Diinputkan")
 
