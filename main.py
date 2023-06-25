@@ -5,6 +5,7 @@ from displaysubtotal import sort
 from stockinput import addStock
 from binarysearchtree import Stock
 from displayalltransaction import tampilkan_data_transaksi
+from restock import restok_barang
 
 Stock.insert({'nama_barang': 'Susu Ganyu', 'no_sku': 2213, 'harga_satuan': 10000, 'jumlah_stok': 10})
 Stock.insert({'nama_barang': 'Pelet Kokomi', 'no_sku': 2231, 'harga_satuan': 4000, 'jumlah_stok': 10})
@@ -55,7 +56,7 @@ def Menu_Kelola_Stok_Barang():
         addStock()
         Menu_Kelola_Stok_Barang()
     elif tanyauser1 == "2":
-        print("lanjut ke program restok barang")
+        restok_barang()
         input("Tekan Enter Untuk Keluar")
         Menu_Kelola_Stok_Barang()
     elif tanyauser1 == "3":
@@ -77,7 +78,7 @@ def Menu_Kelola_Transaksi_Konsumen():
         input("Tekan Enter Untuk Keluar")
         Menu_Kelola_Transaksi_Konsumen()
     elif tanyauser2 == "2":
-        tampilkan_data_transaksi
+        tampilkan_data_transaksi()
         input("Tekan Enter Untuk Keluar")
         Menu_Kelola_Transaksi_Konsumen()
     elif tanyauser2 == "3":
