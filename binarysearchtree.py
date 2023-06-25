@@ -72,6 +72,7 @@ class StockFunction:
             self.root = new_node
             
     def update(self, query, value, data, root=None):
+        value = int(value)
         new_node = Node(value)
         root = self.root if root is None else root
 
