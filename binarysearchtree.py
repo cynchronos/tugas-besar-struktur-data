@@ -15,6 +15,7 @@ class StockFunction:
             self._insert(key, self.root)
 
     def _insert(self, key, node):
+        key['no_sku'] = int(key['no_sku'])
         if key["no_sku"] < node.key["no_sku"]:
             if node.left is None:
                 node.left = Node(key)
