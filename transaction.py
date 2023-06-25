@@ -22,7 +22,7 @@ def tambah_data_transaksi():
                 })
                 Stock.update('no_sku', sku, node)
                 print("Data Transaksi Konsumen Berhasil Diinputkan")
-                print(Stock.findOne("no_sku", 5521))
+                print(Stock.findOne("no_sku", sku))
                 lanjut = input("Apakah ingin menambahkan data pembelian untuk konsumen ini (Y/N)? ")
                 if lanjut.upper() == 'N':
                     loop = False  # Keluar dari loop saat input "N"
