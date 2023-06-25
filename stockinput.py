@@ -15,7 +15,12 @@ class InputStock:
                 break
 
         if is_duplicate == False:
-            inputObject = {skuNumber, productName, price, stock}
+            inputObject = {
+                "no_sku": skuNumber,
+                "nama_barang": productName,
+                "harga_satuan": price,
+                "jumlah_stok": stock
+            }
             self.array.append(inputObject)
 
             for items in self.array:
