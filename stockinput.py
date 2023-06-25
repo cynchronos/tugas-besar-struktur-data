@@ -8,11 +8,13 @@ class InputStock:
 
     def addNewInput(self, skuNumber, productName, price, stock):
         is_duplicate = False
-        for sku in self.array:
-            if skuNumber == sku[0]:
-                print("Ditolak, duplikat nomor sku terdeteksi")
-                is_duplicate = True
-                break
+
+        if skuNumber == Stock.findOne('no_sku', skuNumber):
+          print("Ditolak, duplikat nomor sku terdeteksi")
+          is_duplicate = True
+          
+        if is_duplicate == True:
+          print("ditolak, duplikasi sku terdeteksi")
 
         if is_duplicate == False:
             inputObject = {
@@ -25,7 +27,7 @@ class InputStock:
 
             for items in self.array:
                 Stock.insert(items)
-
+                
             print(self.array)
 
 
