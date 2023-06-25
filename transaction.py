@@ -45,4 +45,3 @@ def tambah_data_transaksi():
 
     return transaksi
 
-transaksi = tambah_data_transaksi()
