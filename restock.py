@@ -8,6 +8,6 @@ def restok_barang():
         stok_baru = int(input("Masukkan jumlah stok baru: "))
         node['jumlah_stok'] += stok_baru
         Stock.update("no_sku", sku, node)
-        return print("Stok barang telah berhasil diperbarui:\n",node['jumlah_stok'])
+        return print("Stok barang telah berhasil diperbarui:\n",node)
     else:
         return print("No. SKU tidak ditemukan.")

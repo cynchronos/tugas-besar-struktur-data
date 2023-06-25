@@ -51,6 +51,7 @@ class StockFunction:
             self.root = new_node
 
     def findOne(self, query, value, root=None):
+        value = int(value)
         new_node = Node(value)
         root = self.root if root is None else root
 
