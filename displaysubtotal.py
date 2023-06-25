@@ -2,15 +2,14 @@ from prettytable import PrettyTable
 from binarysearchtree import Transaction
 
 
-class DisplaySubtotal:
-    def sort(self, transaction):
-        for i in range(len(transaction)):
-            for j in range(len(transaction) - 1):
-                if transaction[j]["subtotal"] < transaction[j + 1]["subtotal"]:
-                    transaction[j], transaction[j + 1] = (
-                        transaction[j + 1],
-                        transaction[j],
-                    )
+def sort(transaction):
+    for i in range(len(transaction)):
+        for j in range(len(transaction) - 1):
+            if transaction[j]["subtotal"] < transaction[j + 1]["subtotal"]:
+                transaction[j], transaction[j + 1] = (
+                    transaction[j + 1],
+                    transaction[j],
+                )
 
         return transaction
 
@@ -29,7 +28,7 @@ array = [
 
 Transaction.insertMany(array)
 
-transactions = DisplaySubtotal().sort(Transaction.findAll())
+transactions = sort(Transaction.findAll())
 table = PrettyTable()
 table.field_names = ["Nama Konsumen", "No SKU", "Jumlah Beli", "Subtotal"]
 for transaction in transactions:
