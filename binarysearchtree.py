@@ -6,7 +6,7 @@ class Node:
 
 
 # create bst crud Stok without validation
-class Stock:
+class StockFunction:
     def __init__(self):
         self.root = None
 
@@ -31,27 +31,29 @@ class Stock:
             print("key is already in tree")
 
     def findAll(self):
+        new_node = Node(None)
         if self.root:
             result = []
 
             stack = []
-            node = self.root
+            root = self.root
 
-            while node or stack:
-                if node:
-                    stack.append(node)
-                    node = node.left
+            while root or stack:
+                if root:
+                    stack.append(root)
+                    root = root.left
                 else:
-                    node = stack.pop()
+                    root = stack.pop()
 
-                    result.append(node.key)
+                    result.append(root.key)
 
-                    node = node.right
+                    root = root.right
             return result
         else:
-            return None
+            self.root = new_node
 
     def findOne(self, query, value, root=None):
+        new_node = Node(value)
         root = self.root if root is None else root
 
         if root:
@@ -67,15 +69,18 @@ class Stock:
                 return self.findOne(query, value, root.left)
             else:
                 return None
-
+        else:
+            self.root = new_node
+            
     def update(self, query, value, data, root=None):
+        new_node = Node(value)
         root = self.root if root is None else root
 
         if root:
             if root.key[query] == value:
                 for index in data.keys():
                     root.key[index] = data[index]
-                return 'success'
+                return True
             elif root.key[query] < value:
                 if root.right is None:
                     return None
@@ -85,7 +90,7 @@ class Stock:
                     return None
                 return self.update(query, value, root.left)
             else:
-                return None
+                self.root = new_node
 
     # def delete(self, key):
     #     if self.root:
@@ -98,7 +103,7 @@ class Stock:
     #         node.left = self._delete(key)
 
 
-class Transaction:
+class TransactionFunction:
     data = []
 
     def insert(self, key):
@@ -127,3 +132,6 @@ class Transaction:
     #         self.data[key] = data
     #     else:
     #         return "Data Kosong"
+
+Stock = StockFunction()
+Transaction = TransactionFunction()

@@ -1,5 +1,5 @@
 from prettytable import PrettyTable
-from binarysearchtree import Stock, Transaction
+from binarysearchtree import Transaction
 
 
 class DisplaySubtotal:
@@ -28,10 +28,9 @@ array = [
     },
 ]
 
-data = Transaction()
-data.insertMany(array)
+Transaction.insertMany(array)
 
-transactions = DisplaySubtotal().sort(data.findAll())
+transactions = DisplaySubtotal().sort(Transaction.findAll())
 table = PrettyTable()
 table.field_names = ["Nama Konsumen", "No SKU", "Jumlah Beli", "Subtotal"]
 for transaction in transactions:
@@ -47,22 +46,23 @@ for transaction in transactions:
 print(f'Order Sort: {transaction}')
 print(table)
 
-# stock = Stock()
-# stock.insert(
-#     {"no_sku": "0001", "nama_roti": "Roti Tawar", "harga": 10000, "jumlah_stock": 10}
+# Stock.insert(
+#     {"no_sku": "0001", "nama_barang": "Roti Tawar", "harga": 10000, "jumlah_stock": 10}
 # )
 
 #! PERLU DIPAHAMI!!
-# sku = input('Masukkan Nomor SKU: ')
+# sku = input("Masukkan Nomor SKU: ")
 
-# stock_data = stock.findOne("no_sku", sku)
+# stock_data = Stock.findOne("no_sku", sku)
 
 # if stock_data is not None:
 #     print(stock_data)
 #     jumlah_stock = int(input("Masukkan jumlah stock: "))
-#     new_stock = stock_data['jumlah_stock'] + jumlah_stock
-#     result = stock.update('no_sku', stock_data['no_sku'], {'jumlah_stock' : new_stock, 'harga': 15000})
-#     print('Update stok sukses') if result == 'success' else print('Gagal update stock')
-#     print(stock.findOne('no_sku', '0001'))
+#     new_stock = stock_data["jumlah_stock"] + jumlah_stock
+#     result = Stock.update(
+#         "no_sku", stock_data["no_sku"], {"nama_barang": "Roti Jahe", "jumlah_stock": new_stock}
+#     )
+#     print("Update stok sukses") if result == True else print("Gagal update stock")
+#     print(Stock.findOne("no_sku", "0001"))
 # else:
 #     print("Stok tidak ditemukan")
