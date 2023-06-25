@@ -1,6 +1,21 @@
 import os
+from binarysearchtree import Transaction
 from transaction import tambah_data_transaksi
 from displaysubtotal import sort
+
+array = [
+    {"nama_konsumen": "Dodo", "no_sku": "0001", "jumlah_beli": 2, "subtotal": 20000},
+    {"nama_konsumen": "Mahmud", "no_sku": "0003", "jumlah_beli": 3, "subtotal": 15000},
+    {"nama_konsumen": "Zeta", "no_sku": "0002", "jumlah_beli": 4, "subtotal": 40000},
+    {
+        "nama_konsumen": "Arona",
+        "no_sku": "SUBA0025",
+        "jumlah_beli": 3,
+        "subtotal": 32000,
+    },
+]
+
+Transaction.insertMany(array)
 
 def main():
     os.system("cls")
