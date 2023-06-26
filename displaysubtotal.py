@@ -4,6 +4,9 @@ from binarysearchtree import Transaction
 
 def sort():
     transactions = Transaction.findAll()
+    if transactions is None:
+        return print('Data Transaksi Kosong')
+    
     for i in range(len(transactions)):
         for j in range(len(transactions) - 1):
             if transactions[j]["subtotal"] < transactions[j + 1]["subtotal"]:

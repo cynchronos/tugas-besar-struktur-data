@@ -1,4 +1,5 @@
 import os
+import sys
 from transaction import tambah_data_transaksi
 from displaysubtotal import sort
 from stockinput import addStock
@@ -6,7 +7,7 @@ from displayalltransaction import tampilkan_data_transaksi
 from restock import restok_barang
 
 def main():
-    os.system("cls")
+    os.system("cls") if sys.platform == 'win32' else os.system("clear")
     print("====================================================")
     print("SISTEM INFORMASI STOK DAN TRANSAKSI")
     print("====================================================")
@@ -24,7 +25,7 @@ def main():
         exit
 
 def Menu_Kelola_Stok_Barang():
-    os.system("cls")
+    os.system("cls") if sys.platform == 'win32' else os.system("clear")
     print("====================================================")
     print("KELOLA STOK BARANG")
     print("====================================================")
@@ -45,7 +46,7 @@ def Menu_Kelola_Stok_Barang():
         exit
 
 def Menu_Kelola_Transaksi_Konsumen():
-    os.system("cls")
+    os.system("cls") if sys.platform == 'win32' else os.system("clear")
     print("====================================================")
     print("KELOLA TRANSAKSI KONSUMEN")
     print("====================================================")

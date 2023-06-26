@@ -9,13 +9,15 @@ class StockFunction:
         self.root = None
 
     def insert(self, key):
-        if self.root is None:
+        key['no_sku'] = int(key['no_sku'])
+        root = self.root if self.root is None else None
+        if root is None:
             self.root = Node(key)
         else:
-            self._insert(key, self.root)
+            self._insert(key, root)
 
     def _insert(self, key, node):
-        key['no_sku'] = int(key['no_sku'])
+        key['no_sku'] = key['no_sku']
         if key["no_sku"] < node.key["no_sku"]:
             if node.left is None:
                 node.left = Node(key)
@@ -55,7 +57,6 @@ class StockFunction:
         value = int(value)
         new_node = Node(value)
         root = self.root if root is None else root
-
         if root:
             if root.key[query] == value:
                 return root.key
@@ -116,17 +117,17 @@ class TransactionFunction:
 
     def findAll(self):
         if len(self.data) != 0:
-            return self.data
+            return self.data.copy()
         else:
-            return "Data Kosong"
+            return None
 
     def findOne(self, query, value):
         if len(self.data) != 0:
-            for i in self.data:
-                if i[query] == value:
-                    return i
+            for data in self.data:
+                if data[query] == value:
+                    return data.copy()
         else:
-            return "Data Kosong"
+            return None
 
     # def update(self, key, data):
     #     if len(self.data) != 0:
