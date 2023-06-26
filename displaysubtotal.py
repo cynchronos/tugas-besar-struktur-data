@@ -7,6 +7,7 @@ def sort():
     if transactions is None:
         return print('Data Transaksi Kosong')
     
+    print(len(transactions))
     for i in range(len(transactions)):
         for j in range(len(transactions) - 1):
             if transactions[j]["subtotal"] < transactions[j + 1]["subtotal"]:
@@ -15,16 +16,16 @@ def sort():
                     transactions[j],
                 )
 
-        table = PrettyTable()
-        table.field_names = ["Nama Konsumen", "No SKU", "Jumlah Beli", "Subtotal"]
-        for transaction in transactions:
-            table.add_row(
-                [
-                    transaction["nama_konsumen"],
-                    transaction["no_sku"],
-                    transaction["jumlah_beli"],
-                    transaction["subtotal"],
-                ]
-            )
+    table = PrettyTable()
+    table.field_names = ["Nama Konsumen", "No SKU", "Jumlah Beli", "Subtotal"]
+    for transaction in transactions:
+        table.add_row(
+            [
+                transaction["nama_konsumen"],
+                transaction["no_sku"],
+                transaction["jumlah_beli"],
+                transaction["subtotal"],
+            ]
+        )
 
-        return print(table)
+    return print(table)
